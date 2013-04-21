@@ -1,0 +1,17 @@
+<% provide(:review, @review.id) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @course.name %>
+      </h1>
+      <p><%= @course.location %></p>
+      <p>Number of holes: <%= @course.holes %></p>
+      <br>
+      <p>
+      <%= @review.content %>
+      </p>
+      Rating: <%= @review.rating %>
+    </section>
+  </aside>
+  </div>

@@ -1,0 +1,21 @@
+<% provide(:name, @course.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @course.name %>
+      </h1>
+      <p><%= @course.location %></p>
+      <p>Number of holes: <%= @course.holes %></p>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @course.reviews.any? %>
+      <h3>Reviews (<%= @course.reviews.count %>)</h3>
+      <ol class="microposts">
+        <%= render @reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+  </div>
+</div>

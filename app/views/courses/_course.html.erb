@@ -1,0 +1,24 @@
+<li>
+  <span class="name"><h3><%= course.name %></h3></span>
+  <span class="Location">
+  <p>
+    Location: <%= course.location %>
+  </p>
+  </span>
+  <span class="Holes">
+  <p>
+    Holes: <%= course.holes %>
+  </p>
+  </span>
+  <div class="span8">
+    <% if course.reviews.any? %>
+    <%= average_rating course %>
+      <h3>Average Rating <%= average %> </h3>
+      <ol class="reviews">
+        <%= render course.reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+  </div>
+
+</li>
