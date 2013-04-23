@@ -4,7 +4,7 @@
 
 <p>We currently have <%= @courses.count %> courses and <%= @reviews.count %> reviews!</p>
 <p>Click the link below to add more!</p>
-<%= link_to "Create a course", @courses, method: :create %>
+<%= link_to "Create a course", courses_path + "/new" %>
 <br />
 <br />
 <%= link_to "View our courses", courses_path %>
