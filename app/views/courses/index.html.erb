@@ -3,10 +3,13 @@
 
 <%= will_paginate %>
 
+<div class="row">
 <ul class="courses">
   <% @courses.each do |course| %>
     <%= render course %>
   <% end %>
 </ul>
+</div>
 
 <%= will_paginate %>
+<%= link_to "Add a course", Course, method: :create %> 

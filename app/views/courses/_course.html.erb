@@ -1,24 +1,25 @@
-<li>
-  <span class="name"><h3><%= course.name %></h3></span>
-  <span class="Location">
-  <p>
-    Location: <%= course.location %>
-  </p>
-  </span>
-  <span class="Holes">
-  <p>
-    Holes: <%= course.holes %>
-  </p>
-  </span>
-  <div class="span8">
+<div class="row">
+  <aside class="span5">
+    <section>
+      <h1>
+        <%= link_to course.name, course %>
+      </h1>
+      <a href="<%= link_to_map course %>"><h5><%= course.location %></h5></a>
+      <h5>Number of holes: <%= course.holes %></h5>
+      <% if course.reviews.any? %>
+      <h5>Average Rating:
+    <%= course.average_rating %> </h5>
+    <% end %>
+    <%= link_to "Add Review", new_course_review_path(course) %> 
+    </section>
+  </aside>
+  <div class="span5">
     <% if course.reviews.any? %>
-    <%= average_rating course %>
-      <h3>Average Rating <%= average %> </h3>
-      <ol class="reviews">
+      <h4>Reviews (<%= course.reviews.count %>)</h4>
+      <ol class="microposts">
         <%= render course.reviews %>
       </ol>
       <%= will_paginate @reviews %>
     <% end %>
   </div>
-
-</li>
+</div>

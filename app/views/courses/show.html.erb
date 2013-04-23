@@ -3,11 +3,20 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= @course.name %>
+        <%= link_to @course.name, @course%>
       </h1>
-      <p><%= @course.location %></p>
-      <p>Number of holes: <%= @course.holes %></p>
-    </section>
+      <a href="<%= link_to_map @course %>"><h5><%= @course.location %></h5></a>
+      <h5>Number of holes: <%= @course.holes %></h5>
+      <% if @course.reviews.any? %>
+      <h5>Average Rating:
+    <%= @course.average_rating %> </h5>
+    <% end %>
+    <%= link_to "Add Review", new_course_review_path(@course) %> 
+    <%= link_to "Delete Course", @course, method: :delete,
+                                  data: { confirm: "You sure?"
+                                  		   }
+                                   %>
+       </section>
   </aside>
   <div class="span8">
     <% if @course.reviews.any? %>
